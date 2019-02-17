@@ -180,3 +180,110 @@ students %>% filter(gender=='M')
 students %>% group_by(gender) %>% summarise(mean(marks1),mean(marks2))
 students %>% group_by(college) %>% summarise(max(marks1),max(marks2))
 students %>% filter(college=='FMS') %>% select(marks1,marks2)
+students
+#data.frame
+n=30
+rollno = 1:30
+(rollno = paste('F',1:30,sep='-'))
+(sname = paste('Student',1:30, sep='&'))
+
+set.seed(1234)
+(gender = sample(c('M','F'), size=n, replace=T, prob=c(.7,.3)))
+table(gender)
+(t1=table(gender))
+prop.table(t1)
+
+set.seed(12)
+(college = sample(c('SRCC','FMS','IIM'), size=n, replace=T, prob=c(.4,.3,.3)))
+(t2=table(college))
+prop.table(t2)
+n=30
+(rollno = paste('F',1:30,sep='-'))
+(sname = paste('Student',1:30, sep='&'))
+set.seed(1234)
+(gender = sample(c('M','F'), size=n, replace=T, prob=c(.7,.3)))
+(t1=table(gender))
+prop.table(t1)
+set.seed(12)
+(college = sample(c('SRCC','FMS','IIM'), size=n, replace=T, prob=c(.4,.3,.3)))
+(t2=table(college))
+prop.table(t2)
+
+(marks1 = round(rnorm(n=n, mean=60,sd=10),0) )
+(marks2 = round(rnorm(n=n, mean=55,sd=15),0) )
+rollno; sname; gender; college;marks1;marks2
+length(gender)
+students = data.frame(rollno, sname, gender, college, marks1, marks2)
+class(students)
+students
+head(students)
+students$
+  students$rollno
+students[,5:6]
+students[,c(2,5:6)]
+students[,c('sname','marks1','marks2')]
+str(students)
+summary(students)
+quantile(students$marks1)
+quantile(students$marks1, probs=seq(0,1,.1))
+seq(0,1,.1)
+
+quantile(students$marks1)
+quantile(students$marks1, probs=c(0,.25,.5,.75,1))
+seq(1,100)
+seq(1,100,2)
+seq(1,100,3)
+quantile(students$marks1, probs=seq(0,1,.1))
+quantile(students$marks1, probs=seq(0,1,.01))
+seq(from=1,to=100,by=3)
+quantile(students$marks1, probs=seq(0,1,.25))
+summary(students)
+str(students)
+students$rollno =as.character(students$rollno)
+students$sname =as.character(students$sname)
+str(students)
+summary(students)
+str(students)
+head(students)
+write.csv(students, 'fms.csv', row.names = F)
+students2 = read.csv('fms.csv')
+head(students2)
+students3 = read.csv(file.choose())
+head(students3)
+
+#students
+head(students)
+library(dplyr)
+head(students)
+students[students$marks1 > 60 , ]
+students[students$gender =='F' , ]
+students[students$gender =='F' | students$college == 'SRCC' , ]#pipe is used as females or from srcc and & is used as and 
+
+
+#highest from all college
+students %>% filter(gender=='M' & marks1 > 60)
+students %>% group_by(gender) %>% summarise(mean(marks1), mean(marks2))
+students %>% group_by(college) %>% summarise(max(marks1), max(marks2))
+students %>% filter(college=='FMS') %>% select(marks1, marks2)
+students
+?`dplyr-package`
+students[students$gender =='F' & students$college == 'SRCC' , ]
+#deplyr helped us to use %>% this symbol
+#which means filter
+students %>% group_by(college) %>% summarise(sum(marks1),mean(marks2))
+?summarise
+students %>% group_by(college) %>% summarise(min(marks1),min(marks2))
+students %>% group_by(gender,college) %>% summarise(countTotal=n(),mean(marks1,max(marks2)))
+students %>% tally()
+students %>% mutate(totalmarks= marks1 + marks2)
+#mutuate helps us to add another column
+students %>% mutate(totalmarks= marks1 + 1.2 * marks2) %>% arrange(-totalmarks)
+students %>% mutate(totalmarks= marks1 + 1.2 * marks2) %>% filter(totalmarks == max(totalmarks))
+students %>% mutate(totalmarks= marks1 + 1.2 * marks2) %>% max(totalmarks) 
+students %>% sample_n(5)
+students %>% sample_frac(.2)
+?filter
+?top_n
+top_n(students,1,marks1)
+library(rjava)
+library(xlsx)
