@@ -16,6 +16,8 @@ for (i in 1:4) { print(sd(inputData[,i]))}
 sapply(inputData, sd)
 lapply(inputData, sd)
 lapply(inputData, quantile)
+
+?sapply
 sapply(inputData, quantile)
 
 ?sapply
@@ -45,12 +47,14 @@ summary(mylogit)
 #The indicator variables for rank have a slightly different interpretation. For example, having attended an undergraduate institution with rank of 2, versus an institution with a rank of 1, changes the log odds of admission by -0.675.
 
 ## odds ratios only
+
 exp(coef(mylogit))
 library(dplyr)
 (ndata1 = sample_n(data, 3))
 (p1=predict(mylogit,newdata=ndata1, type=c("response")))
 
 #Predict admit for input data
+
 (ndata2 = data.frame(gre=c(600, 650), gpa=c(2,3), rank=factor(c(1,2))))
 (p2= predict(mylogit,newdata=ndata2, type=c("response")))
 

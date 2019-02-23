@@ -40,3 +40,8 @@ summary(students$marks1)
 cbind(newdata1,p1)
 ?predict
 ?predict.lm
+
+summary(mtcars)
+fit2=lm(mpg~am,data = mtcars)
+summary(fit2)
+(p1=predict(fit2,newdata = data.frame(am=c(1,2)),type = 'response'))
